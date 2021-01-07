@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace chaser\stream\traits;
 
-use chaser\reactor\Reactor;
+use chaser\reactor\Driver;
 use chaser\stream\Port;
 
 /**
@@ -17,7 +17,7 @@ trait ServerContext
     /**
      * @inheritDoc
      */
-    public function __construct(Reactor $reactor, string $address)
+    public function __construct(Driver $reactor, string $address)
     {
         parent::__construct($reactor, $address);
         if (Port::reusable()) {
