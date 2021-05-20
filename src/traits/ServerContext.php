@@ -4,22 +4,20 @@ declare(strict_types=1);
 
 namespace chaser\stream\traits;
 
-use chaser\reactor\Driver;
 use chaser\stream\Port;
 
 /**
- * 服务器的流资源上下文
+ * 服务器的流资源上下文特征
  *
  * @package chaser\stream\traits
  */
 trait ServerContext
 {
     /**
-     * @inheritDoc
+     * 端口复用设置
      */
-    public function __construct(Driver $reactor, string $address)
+    protected function reusePort(): void
     {
-        parent::__construct($reactor, $address);
         if (Port::reusable()) {
             $this->contextualize(['socket' => ['so_reuseport' => 1]]);
         }

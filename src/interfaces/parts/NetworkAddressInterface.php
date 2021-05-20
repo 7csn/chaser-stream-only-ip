@@ -1,43 +1,41 @@
 <?php
 
-declare(strict_types=1);
-
-namespace chaser\stream;
+namespace chaser\stream\interfaces\parts;
 
 /**
- * 网络地址
+ * 网络地址接口
  *
- * @package chaser\stream
+ * @package chaser\stream\interfaces\parts
  */
 interface NetworkAddressInterface
 {
     /**
      * 获取本地 IP
      *
-     * @return false|string
+     * @return string
      */
-    public function getLocalIp();
+    public function getLocalIp(): string;
 
     /**
      * 获取本地 PORT
      *
      * @return int
      */
-    public function getLocalPort();
+    public function getLocalPort(): int;
 
     /**
      * 获取远程 IP
      *
-     * @return false|string
+     * @return string
      */
-    public function getRemoteIp();
+    public function getRemoteIp(): string;
 
     /**
      * 获取远程 PORT
      *
      * @return false|int
      */
-    public function getRemotePort();
+    public function getRemotePort(): int;
 
     /**
      * 是否 ipv4

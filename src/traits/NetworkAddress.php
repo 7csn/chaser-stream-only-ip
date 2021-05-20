@@ -4,25 +4,25 @@ declare(strict_types=1);
 
 namespace chaser\stream\traits;
 
+use chaser\stream\interfaces\parts\NetworkAddressInterface;
 use chaser\stream\Ip;
 use chaser\stream\Port;
 
 /**
- * 网络地址
+ * 网络地址特征
  *
  * @package chaser\stream\traits
  *
- * @method string getLocalAddress()
- * @method string getRemoteAddress()
+ * @see NetworkAddressInterface
  */
 trait NetworkAddress
 {
     /**
      * 获取本地 IP
      *
-     * @return false|string
+     * @return string
      */
-    public function getLocalIp()
+    public function getLocalIp(): string
     {
         return Ip::get($this->getLocalAddress());
     }
@@ -32,7 +32,7 @@ trait NetworkAddress
      *
      * @return int
      */
-    public function getLocalPort()
+    public function getLocalPort(): int
     {
         return Port::get($this->getLocalAddress());
     }
@@ -40,9 +40,9 @@ trait NetworkAddress
     /**
      * 获取远程 IP
      *
-     * @return false|string
+     * @return string
      */
-    public function getRemoteIp()
+    public function getRemoteIp(): string
     {
         return Ip::get($this->getRemoteAddress());
     }
@@ -50,9 +50,9 @@ trait NetworkAddress
     /**
      * 获取远程 PORT
      *
-     * @return false|int
+     * @return int
      */
-    public function getRemotePort()
+    public function getRemotePort(): int
     {
         return Port::get($this->getRemoteAddress());
     }

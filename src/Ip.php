@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace chaser\stream;
 
 /**
- * ip 相关
+ * ip 相关类
  *
  * @package chaser\stream
  */
@@ -15,11 +15,12 @@ class Ip
      * 获取 ip
      *
      * @param string $address
-     * @return false|string
+     * @return string
      */
-    public static function get(string $address)
+    public static function get(string $address): string
     {
-        return strstr($address, ':', true);
+        $position = strrpos($address, ':');
+        return $position ? (string)substr($address, 0, $position) : '';
     }
 
     /**
@@ -30,8 +31,7 @@ class Ip
      */
     public static function isV4(string $address): bool
     {
-        $ip = self::get($address);
-        return $ip && strpos($ip, ':') === false;
+        return !str_contains(self::get($address), ':');
     }
 
     /**
@@ -42,7 +42,6 @@ class Ip
      */
     public static function isV6(string $address): bool
     {
-        $ip = self::get($address);
-        return $ip && strpos($ip, ':') !== false;
+        return !str_contains(self::get($address), ':');
     }
 }
