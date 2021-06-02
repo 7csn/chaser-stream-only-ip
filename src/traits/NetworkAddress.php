@@ -18,6 +18,36 @@ use chaser\stream\Port;
 trait NetworkAddress
 {
     /**
+     * 本地地址
+     *
+     * @var string
+     */
+    private string $localAddress;
+
+    /**
+     * 远程地址
+     *
+     * @var string
+     */
+    protected string $remoteAddress;
+
+    /**
+     * @inheritDoc
+     */
+    public function getLocalAddress(): string
+    {
+        return $this->localAddress ??= (string)stream_socket_get_name($this->socket, false);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRemoteAddress(): string
+    {
+        return $this->remoteAddress ??= (string)stream_socket_get_name($this->socket, true);
+    }
+
+    /**
      * 获取本地 IP
      *
      * @return string

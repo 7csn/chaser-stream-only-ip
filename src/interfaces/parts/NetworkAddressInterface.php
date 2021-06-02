@@ -10,6 +10,20 @@ namespace chaser\stream\interfaces\parts;
 interface NetworkAddressInterface
 {
     /**
+     * 获取远程地址
+     *
+     * @return string
+     */
+    public function getRemoteAddress(): string;
+
+    /**
+     * 获取本地地址
+     *
+     * @return string
+     */
+    public function getLocalAddress(): string;
+
+    /**
      * 获取本地 IP
      *
      * @return string
