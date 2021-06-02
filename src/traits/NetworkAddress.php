@@ -29,7 +29,7 @@ trait NetworkAddress
      *
      * @var string
      */
-    protected string $remoteAddress;
+    private string $remoteAddress;
 
     /**
      * @inheritDoc
