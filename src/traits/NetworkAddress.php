@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace chaser\stream\traits;
 
-use chaser\stream\interfaces\parts\NetworkAddressInterface;
-use chaser\stream\Ip;
-use chaser\stream\Port;
+use chaser\stream\interfaces\part\NetworkAddressInterface;
+use chaser\stream\{Ip, Port};
 
 /**
  * 网络地址特征
